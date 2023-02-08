@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="UTF-8">
+  	<title>Puzzle Template Matching</title>
+  </head>
+  <body>
+	<h1>
+		{{message}}
+	</h1>
+	
+	<button type = "button" onclick="location.href='v1/'"> Photo </button>
+	<button type = "button" onclick="location.href='v3/'">webcam</button>
+	<button type = "button" onclick="location.href='v4/'">webcam_ex</button> <!--1.캠쳐한 사진을 저장하자. 2.href를 이용해서 웹캠에서 저장한 사진을 주소보낼때 함께 보낸후 이미지 처리를 하자-->
+	{% if True %}
+	<img src = "{% static photo %}" width="400" height="320"></img>
+	{% endif %}
+
+  </body>
+</html>

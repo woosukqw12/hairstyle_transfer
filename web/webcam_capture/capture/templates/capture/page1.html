@@ -1,0 +1,123 @@
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Title</title>
+        <style>
+            #header {
+                background-color: lightgray;
+                height: 50px;
+            }
+            #section1 {
+                height: 500px;
+            }
+            #section2 {
+                height: 250px;
+            }
+            #section3 {
+                hright: 100px;
+            }
+            #header, #section1, #section2, #section3 { text-align: center; }
+        </style>
+    </head>
+    <body>
+        
+
+        {% comment %} <input type="file" accept="image/*" capture="camera" id="camera"> {% endcomment %}
+        <img id="frame">
+        <script>
+        var camera = document.getElementById('camera');
+        var frame = document.getElementById('frame');
+
+        camera.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            // Do something with the image file.
+            frame.src = URL.createObjectURL(file);
+        });
+        </script>
+        
+        {% comment %} title here. {% endcomment %}
+        <div id="header">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">Cover</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
+                    <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+                </nav>
+            </div>
+        </header>
+        </div>
+        <div class="b-example-divider"></div>
+        {% comment %} buttons here. {% endcomment %}
+        <div id="section1">
+        <video id="player" controls autoplay></video> </div>
+        <div class="b-example-divider"></div>
+        <div id="section2">
+        <canvas id="canvas" width=320 height=240></canvas> </div>
+        <hr/>
+
+        <button id="capture">Capture</button>
+
+        <script>
+        var player = document.getElementById('player');
+        var snapshotCanvas = document.getElementById('canvas');
+        var captureButton = document.getElementById('capture');
+
+        var handleSuccess = function(stream) {
+            // Attach the video stream to the video element and autoplay.
+            player.srcObject = stream;
+        };
+        // guide line gen.
+        const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+        se
+
+        captureButton.addEventListener('click', function() {
+            var context = canvas.getContext('2d');
+            // Draw the video frame to the canvas.
+            context.drawImage(player, 0, 0, snapshotCanvas.width,
+            snapshotCanvas.height);
+            context.toDataUrl 
+        });
+
+        navigator.mediaDevices.getUserMedia({video: true})
+            .then(handleSuccess);
+
+        </script>
+
+        <script> //사진 저장
+            function download(){
+            var download = document.getElementById("download");
+            var image = document.getElementById("canvas").toDataURL("image/png")
+            .replace("image/png", "image/octet-stream");
+            download.setAttribute("href", image);
+            }
+        </script>
+        <a id="download" download="image.png">
+        <button type="button" onClick="download()">Download</button></a>
+        {% csrf_token %}
+        <form action="/capture/page2/"
+                method="post"
+                enctype="multipart/form-data"> 
+            File:
+            <input type="file"
+                    name="file"
+                    id="id_file" />
+            <input type="submit" value="UPLOAD" /> 
+        </form> {% csrf_token %}
+    </body>
+</html>
+

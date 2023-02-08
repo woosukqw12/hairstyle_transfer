@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Results</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="bg-primary text-center py-5 mb-4">
+      <div class="container">
+        <h1 class="font-weight-light text-white">See Results!!</h1>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <!-- Team Member 1 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="{% static 'images/Resulted_edgesam.jpg' %}" width="400" height="350" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Results</h5>
+              <div class="card-text text-black-50">Resulted_edge sample</div>
+            </div>
+          </div>
+        </div>
+        <!-- Team Member 2 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src = "{% static 'images/Resulted_temsam.jpg' %}" width="400" height="350" class="card-img-top" alt="..."></img>
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Results</h5>
+              <div class="card-text text-black-50">Resulted_template sample</div>
+            </div>
+         </div>
+        </div>
+        <!-- Team Member 3 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Original</h5>
+              <div class="card-text text-black-50">Puzzle Piece</div>
+            </div>
+          </div>
+        </div>
+        <!-- Team Member 4 -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-0 shadow">
+            <img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title mb-0">Original</h5>
+              <div class="card-text text-black-50">Puzzle Board</div>
+            </div>
+          </div>
+        </div>
+     </div>
+      <!-- /.row -->
+    
+    </div>
+    <!-- /.container -->
+
+
+    <script src="{% static 'vendor/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/jquery/jquery.slim.min.js' %}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
+</html>
